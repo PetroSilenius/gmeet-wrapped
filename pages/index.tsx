@@ -1,6 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { Typography } from '@mui/material';
+import { css } from '@emotion/react';
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +15,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>
+        <Typography
+          variant="h1"
+          css={css`
+            color: red;
+          `}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        </Typography>
 
         <p>
           Get started by editing <code>pages/index.tsx</code>
