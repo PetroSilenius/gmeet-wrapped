@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState, useCallback } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -34,12 +33,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <Head>
-        <title>Gmeet wrapped</title>
-        <meta name="description" content="Your Gmeet year wrapped" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
       <Container>
         <Grid container spacing={2} direction="column" justifyContent="center" height={'100vh'}>
           <Grid item xs={11} sx={{ alignItems: 'center' }} alignItems="center">
@@ -82,7 +76,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 
