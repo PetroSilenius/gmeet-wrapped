@@ -1,9 +1,19 @@
+/** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
-import { css } from '@emotion/react';
+import { Container, Grid, Typography } from '@mui/material';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { convertToObject, getXLongestMeets } from '../utils';
+
+import Loader from 'components/Loader';
+import WrappedReportHeader from 'components/WrappedReportHeader';
+import TopMeetRow from 'components/TopMeetRow';
+
+const timeUsageScenarios = [
+  { title: 'Breaths taken🫁', factor: 17 * 60 },
+  { title: 'Heart beats❤️', factor: 72 },
+  { title: 'Water cups drank🚰', factor: 1 / (16 / 2.5) },
+];
 
 const WrappedReport = ({
   startDay,
@@ -16,7 +26,7 @@ const WrappedReport = ({
 }) => {
   const [accessToken] = useLocalStorage('accessToken', undefined);
 
-  const [meets, setMeets] = useState<(SimpleEvent[] & { duration: number })[]>();
+  const [meets, setMeets] = useState<Meet[]>();
   const [timeSpent, setTimeSpent] = useState(0);
 
   useEffect(() => {
@@ -50,19 +60,50 @@ const WrappedReport = ({
     }
   }, [accessToken, calendarId, endDay, startDay]);
 
+  if (!meets) return <Loader />;
+
   return (
-    <div>
-      <h1>Your calendar wrapped</h1>
-      <p>You spent {timeSpent} hours in your meetings</p>
-      {meets?.map((meet) => {
-        return (
-          <div key={meet[0].id}>
-            <h3>{meet[0].title}</h3>
-            <p>{meet.duration} hours</p>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <Container>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          height={'100vh'}>
+          <Grid item xs={4}>
+            <WrappedReportHeader timeSpent={timeSpent} />
+          </Grid>
+          <Grid item xs={4} sx={{ width: '100%' }}>
+            <Grid container>
+              <Grid item xs={6}>
+                <Typography component="h2" variant="h5">
+                  Your top 5 meets
+                </Typography>
+                {meets?.map((meet) => {
+                  return <TopMeetRow meet={meet} key={meet[0].id} />;
+                })}
+              </Grid>
+              <Grid item xs={6}>
+                <Typography component="h2" variant="h5">
+                  What happened during those hours
+                </Typography>
+                {timeUsageScenarios?.map((meet) => {
+                  return (
+                    <div key={meet.title}>
+                      <p>
+                        <b>{meet.title}</b>
+                      </p>
+                      <p>{Math.round(timeSpent * meet.factor)}</p>
+                    </div>
+                  );
+                })}
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
 };
 

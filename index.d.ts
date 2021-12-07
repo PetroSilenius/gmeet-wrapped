@@ -16,3 +16,5 @@ interface SimpleEvent {
   title: string;
   duration: number;
 }
+
+type Meet = SimpleEvent[] & { duration: number };
