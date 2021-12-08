@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
@@ -35,14 +34,14 @@ const Home = () => {
   return (
     <>
       <Container>
-        <Grid container spacing={2} direction="column" justifyContent="center" height={'100vh'}>
+        <Grid container direction="column" justifyContent="center" height={'100vh'}>
           <Grid item xs={11} sx={{ alignItems: 'center' }} alignItems="center">
             <main
               css={css`
                 display: flex;
                 height: 100%;
               `}>
-              <Grid container spacing={2} alignItems="center">
+              <Grid container alignItems="center">
                 <Grid item xs={12} md={5}>
                   <Typography component="h1" variant="h3" sx={{ mb: '50px' }}>
                     Your Google meet year wrapped
