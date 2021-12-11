@@ -67,17 +67,17 @@ const WrappedReport = ({
         <Grid
           container
           direction="column"
-          justifyContent="center"
+          justifyContent="space-around"
           alignItems="center"
-          height={'100vh'}>
-          <Grid item xs={4}>
+          minHeight={'100vh'}>
+          <Grid item xs={4} sx={{ my: '25px' }}>
             <WrappedReportHeader timeSpent={timeSpent} />
           </Grid>
-          <Grid item xs={4} sx={{ width: '100%' }}>
+          <Grid item xs={8} sx={{ width: '100%' }}>
             <Grid container>
               <Grid item xs={6}>
                 <Typography component="h2" variant="h5">
-                  Your top 5 meets
+                  Top 5 meets
                 </Typography>
                 {meets?.map((meet) => {
                   return <TopMeetRow meet={meet} key={meet[0].id} />;

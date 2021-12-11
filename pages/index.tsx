@@ -34,43 +34,30 @@ const Home = () => {
   return (
     <>
       <Container>
-        <Grid container direction="column" justifyContent="center" height={'100vh'}>
-          <Grid item xs={11} sx={{ alignItems: 'center' }} alignItems="center">
-            <main
-              css={css`
-                display: flex;
-                height: 100%;
-              `}>
-              <Grid container alignItems="center">
-                <Grid item xs={12} md={5}>
-                  <Typography component="h1" variant="h3" sx={{ mb: '50px' }}>
-                    Your Google meet year wrapped
-                  </Typography>
+        <Grid container direction="column" minHeight={'100vh'}>
+          <Grid item container xs={10} alignItems="center" sx={{ flexGrow: 1 }}>
+            <Grid item xs={12} md={5} sx={{ marginTop: '30px' }}>
+              <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
+                Your Google meet year wrapped
+              </Typography>
 
-                  {calendars && calendars.length ? (
-                    <CalendarSelector calendars={calendars} />
-                  ) : (
-                    <SignToGoogle setAccessToken={setAccessTokenFromGoogle} />
-                  )}
-                </Grid>
+              {calendars && calendars.length ? (
+                <CalendarSelector calendars={calendars} />
+              ) : (
+                <SignToGoogle setAccessToken={setAccessTokenFromGoogle} />
+              )}
+            </Grid>
 
-                <Grid item xs={12} md={7}>
-                  <Card sx={{ margin: '30px', background: theme.palette.grey[800] }}>
-                    <CardContent>
-                      <Image
-                        src="/google-meet.svg"
-                        alt="Google Meet logo"
-                        width="300"
-                        height="300"
-                      />
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </Grid>
-            </main>
+            <Grid item xs={12} md={7}>
+              <Card sx={{ margin: '30px', background: theme.palette.grey[800] }}>
+                <CardContent>
+                  <Image src="/google-meet.svg" alt="Google Meet logo" width="300" height="300" />
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
 
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Footer />
           </Grid>
         </Grid>

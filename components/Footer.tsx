@@ -5,19 +5,17 @@ import { Grid, Link as MuiLink, Typography } from '@mui/material';
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer
+      css={css`
+        margin-bottom: 15px;
+      `}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={3}>
           <Link href="/privacy" passHref>
             <MuiLink>Privacy Policy</MuiLink>
           </Link>
         </Grid>
-        <Grid
-          item
-          xs={6}
-          css={css`
-            text-align: center;
-          `}>
+        <Grid item xs={6} sx={{ textAlign: 'center' }}>
           <Typography component="span">Powered by </Typography>
           <MuiLink
             href="https://silenius.dev"
