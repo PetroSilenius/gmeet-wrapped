@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { Grid, Link as MuiLink, Typography } from '@mui/material';
@@ -23,7 +22,7 @@ export const Footer = () => {
               vertical-align: middle;
               margin-left: 5px;
             `}>
-            <Image src="/profileImg.png" alt="Vercel Logo" width={32} height={32} />
+            <img src="/profileImg.png" alt="Vercel Logo" width={32} height={32} />
           </MuiLink>
         </Grid>
         <Grid item xs={3}>

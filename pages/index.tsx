@@ -1,8 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import Image from 'next/image';
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { css } from '@emotion/react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 import Footer from 'components/Footer';
@@ -51,7 +49,7 @@ const Home = () => {
             <Grid item xs={12} md={7}>
               <Card sx={{ margin: '30px', background: theme.palette.grey[800] }}>
                 <CardContent>
-                  <Image src="/google-meet.svg" alt="Google Meet logo" width="300" height="300" />
+                  <img src="/google-meet.svg" alt="Google Meet logo" width="300" height="300" />
                 </CardContent>
               </Card>
             </Grid>
