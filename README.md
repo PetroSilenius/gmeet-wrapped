@@ -1,10 +1,12 @@
-# Gmeet-wrapped
+# [Gmeet-wrapped](https://gmeet-wrapped.com)
 
 ## Your Google meet year wrapped
 
 Get some highlights from your year of Google meet. Select one of your calendars and get insights on your time usage.
 
 All analysis is done in your browser and the data is not saved anywhere.
+
+Available at [gmeet-wrapped.com](https://gmeet-wrapped.com)
 
 ## Visuals
 
