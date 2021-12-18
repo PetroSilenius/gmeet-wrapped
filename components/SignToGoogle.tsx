@@ -15,7 +15,9 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
       await gapi.auth2
         .getAuthInstance()
         .signIn()
-        .then((res: any) => setAccessToken(res.wc.access_token));
+        .then((res: any) => {
+          setAccessToken(res.vc.access_token);
+        });
     });
   };
 
