@@ -25,7 +25,7 @@ Deployment is done with Netlify utilising the Essential Next.js plugin.
 Clone the repository
 
 ```bash
-  https://github.com/PetroSilenius/gmeet-wrapped.git
+  git clone https://github.com/PetroSilenius/gmeet-wrapped.git
 ```
 
 Change to the project directory
