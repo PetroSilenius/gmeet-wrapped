@@ -16,7 +16,7 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
         .getAuthInstance()
         .signIn()
         .then((res: any) => {
-          setAccessToken(res.vc.access_token);
+          setAccessToken(res.Bc.access_token);
         });
     });
   };
