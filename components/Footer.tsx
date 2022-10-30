@@ -10,9 +10,9 @@ export const Footer = () => {
       `}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={3}>
-          <Link href="/privacy" passHref>
-            <MuiLink>Privacy Policy</MuiLink>
-          </Link>
+          <MuiLink component={Link} href="/privacy">
+            Privacy Policy
+          </MuiLink>
         </Grid>
         <Grid item xs={6} sx={{ textAlign: 'center' }}>
           <Typography component="span">Powered by </Typography>
@@ -26,9 +26,9 @@ export const Footer = () => {
           </MuiLink>
         </Grid>
         <Grid item xs={3}>
-          <Link href="/terms" passHref>
-            <MuiLink>Terms &amp; Conditions</MuiLink>
-          </Link>
+          <MuiLink component={Link} href="/terms">
+            Terms &amp; Conditions
+          </MuiLink>
         </Grid>
       </Grid>
     </footer>

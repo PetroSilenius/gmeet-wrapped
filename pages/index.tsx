@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -25,15 +25,11 @@ const Home = () => {
     }
   }, [accessToken]);
 
-  const setAccessTokenFromGoogle = useCallback((token: string) => {
-    setAccessToken(token);
-  }, []);
-
   return (
     <>
       <Container>
-        <Grid container direction="column" minHeight={'100vh'}>
-          <Grid item container xs={10} alignItems="center" sx={{ flexGrow: 1 }}>
+        <Grid container direction="column" sx={{ minHeight: '100vh' }}>
+          <Grid item container xs alignItems="center" sx={{ flexGrow: 1 }}>
             <Grid item xs={12} md={5} sx={{ marginTop: '30px' }}>
               <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
                 Your Google meet year wrapped
@@ -42,7 +38,7 @@ const Home = () => {
               {calendars && calendars.length ? (
                 <CalendarSelector calendars={calendars} />
               ) : (
-                <SignToGoogle setAccessToken={setAccessTokenFromGoogle} />
+                <SignToGoogle setAccessToken={(token: string) => setAccessToken(token)} />
               )}
             </Grid>
 

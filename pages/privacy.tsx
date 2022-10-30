@@ -43,13 +43,12 @@ export const PrivacyPolicy = () => {
         <p>
           The terms used in this Privacy Policy have the same meanings as in our Terms and
           Conditions, which are accessible at{' '}
-          <Link href="/terms" passHref>
-            <a
-              css={css`
-                color: #00a8ff;
-              `}>
-              https://gmeet-wrapped.com/terms
-            </a>
+          <Link
+            href="/terms"
+            css={css`
+              color: #00a8ff;
+            `}>
+            https://gmeet-wrapped.com/terms
           </Link>
           .
         </p>

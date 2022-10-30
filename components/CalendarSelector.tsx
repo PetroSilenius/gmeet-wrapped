@@ -37,7 +37,7 @@ export const CalendarSelector = ({ calendars }: { calendars: GCalendar[] }) => {
           </Select>
         </FormControl>
       </div>
-      <Link href={`/${selectedCalendar}`} passHref>
+      <Link href={`/${selectedCalendar}`} passHref legacyBehavior>
         <Button
           variant="contained"
           color="primary"
