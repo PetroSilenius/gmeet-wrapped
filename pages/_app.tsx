@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import CssBaseline from '@mui/material/CssBaseline';
+import { Roboto } from '@next/font/google';
 import { CacheProvider, css } from '@emotion/react';
 import createCache, { EmotionCache } from '@emotion/cache';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from 'theme';
 
 interface MyAppProps extends AppProps {
@@ -12,6 +12,8 @@ interface MyAppProps extends AppProps {
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createCache({ key: 'css' });
+
+const roboto = Roboto({ weight: '400' });
 
 export default function MyApp({
   Component,
@@ -33,8 +35,8 @@ export default function MyApp({
           css={css`
             background-color: ${theme.palette.background.default};
             color: ${theme.palette.text.primary};
-          }`}>
-          <Component {...pageProps} />
+          `}>
+          <Component {...pageProps} className={roboto.className} />
         </div>
       </ThemeProvider>
     </CacheProvider>
