@@ -8,8 +8,8 @@ export const Footer = () => {
       css={css`
         margin-bottom: 15px;
       `}>
-      <Grid container justifyContent="center" alignItems="center">
-        <Grid item xs={3}>
+      <Grid container justifyContent="space-between" alignItems="center">
+        <Grid item xs>
           <MuiLink component={Link} href="/privacy">
             Privacy Policy
           </MuiLink>
@@ -25,7 +25,7 @@ export const Footer = () => {
             <img src="/profileImg.png" alt="Vercel Logo" width={32} height={32} />
           </MuiLink>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs textAlign="right">
           <MuiLink component={Link} href="/terms">
             Terms &amp; Conditions
           </MuiLink>
