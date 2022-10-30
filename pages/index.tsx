@@ -53,8 +53,9 @@ const Home = () => {
               <Image
                 src="/astronaut.png"
                 alt="Astronaut walking on the moon with a laptop"
-                width="300"
-                height="300"
+                width={300}
+                height={300}
+                priority
                 style={{ borderRadius: '10px' }}
               />
             </Grid>
