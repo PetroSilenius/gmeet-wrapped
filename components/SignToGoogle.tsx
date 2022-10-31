@@ -1,4 +1,4 @@
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, Tooltip } from '@mui/material';
 
 export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: string) => void }) => {
   const signInToGoogle = () => {
@@ -24,9 +24,12 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
   return (
     <>
       <Typography paragraph>
-        Get highlights from your Gmeet year of {new Date().getFullYear()}. Learn how much time you
-        spent on Gmeet and which were your top meets. Click the button below to log in and select
-        which of your calendars you want to see.
+        Learn how much time you spent on{' '}
+        <Tooltip title="Google Meet" arrow>
+          <span style={{ textDecoration: 'underline dotted' }}>Gmeet</span>
+        </Tooltip>{' '}
+        and which were your top meets. Sign in to your Google account and select which of your
+        calendars you want to see.
       </Typography>
       <Button
         variant="contained"
@@ -34,7 +37,7 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
         onClick={signInToGoogle}
         size="large"
         sx={{ px: '30px', textTransform: 'capitalize' }}>
-        Sign In
+        Get started
       </Button>
     </>
   );

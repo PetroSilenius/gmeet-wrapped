@@ -39,7 +39,7 @@ const Home = () => {
             sx={{ flexGrow: 1 }}>
             <Grid item xs={12} md={6} sx={{ marginTop: '30px' }}>
               <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
-                Your Google meet year wrapped
+                Your Google meet year {new Date().getFullYear()} wrapped
               </Typography>
 
               {calendars && calendars.length ? (
