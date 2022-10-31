@@ -24,8 +24,9 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
   return (
     <>
       <Typography paragraph>
-        Get some highlights from your Gmeet year of {new Date().getFullYear()}. Click the button
-        below to log in and select which of your calendars you want to see.
+        Get highlights from your Gmeet year of {new Date().getFullYear()}. Learn how much time you
+        spent on Gmeet and which were your top meets. Click the button below to log in and select
+        which of your calendars you want to see.
       </Typography>
       <Button
         variant="contained"
