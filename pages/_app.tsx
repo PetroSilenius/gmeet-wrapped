@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { CacheProvider } from '@emotion/react';
 import createCache, { EmotionCache } from '@emotion/cache';
 import { ThemeProvider, CssBaseline, Box } from '@mui/material';
-import theme, { roboto } from 'theme';
+import theme from 'theme';
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -29,7 +29,6 @@ export default function MyApp({
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Box
-          className={roboto.className}
           sx={{
             backgroundColor: 'background.default',
             color: 'text.primary',

@@ -2,11 +2,12 @@ import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
+import { roboto } from 'theme';
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className={roboto.className}>
         <Head>
           <script src="https://apis.google.com/js/api.js" async defer type="text/javascript" />
         </Head>
