@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Roboto } from '@next/font/google';
-import { CacheProvider, css } from '@emotion/react';
+import { CacheProvider } from '@emotion/react';
 import createCache, { EmotionCache } from '@emotion/cache';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import theme from 'theme';
 
 interface MyAppProps extends AppProps {
@@ -31,14 +31,14 @@ export default function MyApp({
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <div
+        <Box
           className={roboto.className}
-          css={css`
-            background-color: ${theme.palette.background.default};
-            color: ${theme.palette.text.primary};
-          `}>
+          sx={{
+            backgroundColor: 'background.default',
+            color: 'text.primary',
+          }}>
           <Component {...pageProps} />
-        </div>
+        </Box>
       </ThemeProvider>
     </CacheProvider>
   );
