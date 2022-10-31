@@ -32,11 +32,12 @@ export default function MyApp({
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <div
+          className={roboto.className}
           css={css`
             background-color: ${theme.palette.background.default};
             color: ${theme.palette.text.primary};
           `}>
-          <Component {...pageProps} className={roboto.className} />
+          <Component {...pageProps} />
         </div>
       </ThemeProvider>
     </CacheProvider>
