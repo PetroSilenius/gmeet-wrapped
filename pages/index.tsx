@@ -1,72 +1,34 @@
-import { useEffect, useState } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import useLocalStorage from '../hooks/useLocalStorage';
+import { Button, Tooltip, Typography } from '@mui/material';
 
-import Footer from 'components/Footer';
-import { CalendarSelector } from 'components/CalendarSelector';
-import { SignToGoogle } from 'components/SignToGoogle';
-import Image from 'next/image';
+import Layout from 'components/Layout';
+import NextLink from 'next/link';
 
 const Home = () => {
-  const [accessToken, setAccessToken] = useLocalStorage('accessToken', '');
-  const [calendars, setCalendars] = useState([]);
-  const theme = useTheme();
-
-  useEffect(() => {
-    if (accessToken) {
-      fetch(`https://www.googleapis.com/calendar/v3/users/me/calendarList?minAccessRole=writer`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setCalendars(data.items);
-          console.log(data.items);
-        });
-    }
-  }, [accessToken]);
-
   return (
-    <>
-      <Container>
-        <Grid container direction="column" sx={{ minHeight: '100vh' }}>
-          <Grid
-            item
-            container
-            xs
-            alignItems="center"
-            justifyContent="space-evenly"
-            sx={{ flexGrow: 1 }}>
-            <Grid item xs={12} md={6} sx={{ marginTop: '30px' }}>
-              <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
-                Your Google meet year {new Date().getFullYear()} wrapped
-              </Typography>
+    <Layout>
+      <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
+        Your Google meet year {new Date().getFullYear()} wrapped
+      </Typography>
 
-              {calendars && calendars.length ? (
-                <CalendarSelector calendars={calendars} />
-              ) : (
-                <SignToGoogle setAccessToken={(token: string) => setAccessToken(token)} />
-              )}
-            </Grid>
+      <Typography paragraph>
+        Learn how much time you spent on{' '}
+        <Tooltip title="Google Meet" arrow>
+          <span style={{ textDecoration: 'underline dotted' }}>Gmeet</span>
+        </Tooltip>{' '}
+        and which were your top meets. Sign in to your Google account and select which of your
+        calendars you want to see
+      </Typography>
 
-            <Grid item xs="auto">
-              <Image
-                src="/astronaut.png"
-                alt="Astronaut walking on the moon with a laptop"
-                width={300}
-                height={300}
-                priority
-                style={{ borderRadius: '10px' }}
-              />
-            </Grid>
-          </Grid>
-
-          <Grid item xs={2}>
-            <Footer />
-          </Grid>
-        </Grid>
-      </Container>
-    </>
+      <Button
+        component={NextLink}
+        href="/signin"
+        variant="contained"
+        color="primary"
+        size="large"
+        sx={{ px: '30px', textTransform: 'capitalize' }}>
+        Get started
+      </Button>
+    </Layout>
   );
 };
 

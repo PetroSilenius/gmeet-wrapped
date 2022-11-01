@@ -1,6 +1,12 @@
-import { Typography, Button, Tooltip } from '@mui/material';
+import { Button } from '@mui/material';
 
-export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: string) => void }) => {
+import useLocalStorage from 'hooks/useLocalStorage';
+import { useRouter } from 'next/router';
+
+export const SignToGoogle = () => {
+  const router = useRouter();
+  const [, setAccessToken] = useLocalStorage('accessToken', '');
+
   const signInToGoogle = () => {
     const gapi = (window as any).gapi;
 
@@ -17,28 +23,19 @@ export const SignToGoogle = ({ setAccessToken }: { setAccessToken: (token: strin
         .signIn()
         .then((res: any) => {
           setAccessToken(res.Bc.access_token);
+          router.push('/select-calendar');
         });
     });
   };
 
   return (
-    <>
-      <Typography paragraph>
-        Learn how much time you spent on{' '}
-        <Tooltip title="Google Meet" arrow>
-          <span style={{ textDecoration: 'underline dotted' }}>Gmeet</span>
-        </Tooltip>{' '}
-        and which were your top meets. Sign in to your Google account and select which of your
-        calendars you want to see.
-      </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={signInToGoogle}
-        size="large"
-        sx={{ px: '30px', textTransform: 'capitalize' }}>
-        Get started
-      </Button>
-    </>
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={signInToGoogle}
+      size="large"
+      sx={{ px: '30px', textTransform: 'capitalize' }}>
+      Log in with Google
+    </Button>
   );
 };
