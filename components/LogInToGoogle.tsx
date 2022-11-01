@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { useRouter } from 'next/router';
 
-export const SignToGoogle = () => {
+const LogInToGoogle = () => {
   const router = useRouter();
   const [, setAccessToken] = useLocalStorage('accessToken', '');
 
@@ -39,3 +39,5 @@ export const SignToGoogle = () => {
     </Button>
   );
 };
+
+export default LogInToGoogle;

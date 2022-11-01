@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
 
 import Layout from 'components/Layout';
-import { SignToGoogle } from 'components/SignToGoogle';
+import LogInToGoogle from 'components/LogInToGoogle';
 
-const SignIn = () => {
+const Login = () => {
   return (
     <Layout>
       <Typography component="h1" variant="h3" sx={{ mb: '30px' }}>
@@ -14,9 +14,9 @@ const SignIn = () => {
         View access to your calendars is used to list available calendars and the selected calendar
         will be used to gather the Google Meet events.
       </Typography>
-      <SignToGoogle />
+      <LogInToGoogle />
     </Layout>
   );
 };
 
-export default SignIn;
+export default Login;

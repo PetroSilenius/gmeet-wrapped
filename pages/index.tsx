@@ -21,7 +21,7 @@ const Home = () => {
 
       <Button
         component={NextLink}
-        href="/signin"
+        href="/login"
         variant="contained"
         color="primary"
         size="large"
