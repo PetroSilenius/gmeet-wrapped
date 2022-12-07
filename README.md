@@ -1,4 +1,4 @@
-# [Gmeet-wrapped](https://gmeet-wrapped.com)
+# [Gmeet-wrapped](https://gmeet-wrapped.netlify.app)
 
 ## Your Google meet year wrapped
 
@@ -6,7 +6,7 @@ Get some highlights from your year of Google meet. Select one of your calendars 
 
 All analysis is done in your browser and the data is not saved anywhere.
 
-Available at [gmeet-wrapped.com](https://gmeet-wrapped.com)
+Available at [gmeet-wrapped.netlify.app](https://gmeet-wrapped.netlify.app)
 
 ## Visuals
 
